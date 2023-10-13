@@ -1,9 +1,9 @@
-name: PHP Script CI
+name: Python CI
 
 on:
   push:
     branches:
-      - main
+      - main  # Replace with the branch you want to trigger the workflow
 
 jobs:
   build:
@@ -13,15 +13,16 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up PHP
-      run: |
-        # Add the path to the PHP executable to the system PATH
-        echo 'export PATH="$PATH:/path/to/php"' >> $GITHUB_ENV
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x  # Replace with the Python version you need
 
-    - name: Run PHP script
+    - name: Install Jupyter
       run: |
-        # Ensure the PHP interpreter is available
-        php -v
+        python -m pip install --upgrade pip
+        pip install jupyter
 
-        # Run your PHP script
-        php Untitled-1.php
+    - name: Run Python script
+      run: |
+        jupyter nbconvert --execute --to html Calc.ipynb
