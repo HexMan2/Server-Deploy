@@ -17,7 +17,6 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.x  # Replace with the Python version you need
-        architecture: x64  # Add this line for 64-bit Python if needed
 
     - name: Install Jupyter
       run: |
@@ -26,4 +25,4 @@ jobs:
 
     - name: Run Python script
       run: |
-        jupyter nbconvert --execute Calc.ipynb
+        jupyter nbconvert --execute --to html Calc.ipynb
