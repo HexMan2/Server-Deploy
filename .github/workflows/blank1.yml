@@ -1,0 +1,17 @@
+name: PHP Script CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: self-hosted  # Indicates that a self-hosted runner is being used
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run PHP script
+      run: php Untitled-1.php
