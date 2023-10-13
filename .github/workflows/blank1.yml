@@ -15,13 +15,9 @@ jobs:
 
     - name: Set up PHP
       run: |
-        # Add the path to the PHP executable to the system PATH
         echo 'export PATH="$PATH:/path/to/php"' >> $GITHUB_ENV
 
     - name: Run PHP script
       run: |
-        # Ensure the PHP interpreter is available
         php -v
-
-        # Run your PHP script
         php Untitled-1.php
